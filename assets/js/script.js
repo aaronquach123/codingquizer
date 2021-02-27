@@ -5,23 +5,27 @@
 //Create timer that changes questions in intervals of 10 seconds
 // Create local storage for high scores make high scores able to be called back
 var quizBox = document.querySelector("#quiz-box");
-var quizQuestionTitle = document.querySelector("quiz-question");
-var quizAnswers = document.querySelector("#quiz-answers");
 var timerEl = document.getElementById('countdown');
 var mainEl = document.getElementById('main');
 var startBtn = document.getElementById('start');
 var questionNumber = 0;
 var timeLeft = 100;
 
-
 var quizQuestion = [
     {
-        question: "test",
-        answer: "test",
+        question: "test1",
+        choice1: "test2",
+        choice2: "test3",
+        choice3: "test4",
+        choice4: "test5",
+        
     },
     {
         question: "test2",
-        answer: "test2",
+        choice1: "test2",
+        choice2: "test2",
+        choice3: "test2",
+        choice4: "test2",
     }
 ];
 
@@ -42,11 +46,45 @@ var timeInterval = setInterval(function() {
 
 var createQuestion = function() {
     var currentQuestion = quizQuestion[questionNumber];
-    var usersAnswer = confirm(currentQuestion.question);
+    //var usersAnswer = confirm(currentQuestion.question);
     questionNumber++; 
 }
 
 
 var questionWriter = function() {
 
-}
+
+    var quizQuestionHolder = document.createElement("li");
+    quizQuestionHolder.className = "quiz-holder";
+
+    var quizQuestionTitle = document.createElement("div");
+    quizQuestionTitle.className = "test1"
+    quizQuestionTitle.innerHTML = "<h2>" + quizQuestion[questionNumber].question;
+    
+    quizQuestionHolder.appendChild(quizQuestionTitle);
+
+    var quizChoiceHolder = document.createElement("div");
+    quizChoiceHolder.className = "quiz-holder";
+
+    var quizChoice1 = document.createElement("button");
+    quizChoice1.textContent = quizQuestion[questionNumber].choice1;
+    quizChoiceHolder.appendChild(quizChoice1);
+
+    var quizChoice2 = document.createElement("button");
+    quizChoice1.textContent = quizQuestion[questionNumber].choice2;
+    quizChoiceHolder.appendChild(quizChoice2);
+    
+    var quizChoice3 = document.createElement("button");
+    quizChoice1.textContent = quizQuestion[questionNumber].choice3; 
+    quizChoiceHolder.appendChild(quizChoice3);
+    
+    var quizChoice4 = document.createElement("button");
+    quizChoice1.textContent = quizQuestion[questionNumber].choice4;
+    quizChoiceHolder.appendChild(quizChoice4);
+
+    quizBox.appendChild(quizQuestionHolder)
+    quizBox.appendChild(quizChoiceHolder);
+
+};
+
+questionWriter();
