@@ -5,7 +5,7 @@
   
 ## Installation
   Deployment url below! or if you would like to pull the code and see for yourself,
-  git clone "https:/https://github.com/aaronquach123/codingquizer.git"
+  git clone "https://github.com/aaronquach123/codingquizer.git"
 ## Usage
   Please feel free to submit issues with my code if you see any way I can streamline it or improve it!
 ## Deployment
