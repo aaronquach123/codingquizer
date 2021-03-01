@@ -7,7 +7,8 @@
 var quizBoxEl = document.querySelector("#quiz-box");
 var timerEl = document.querySelector("#timer-text");
 var mainEl = document.querySelector("#main")
-var highscoreBoxEl = document.querySelector("#highscore-box")
+var questionResultEl = document.querySelector("#question-result");
+var highscoreBoxEl = document.querySelector("#highscore-box");
 var questionNumber = 0;
 var timeLeft = 100;
 var quizScore = 0;
@@ -116,7 +117,7 @@ var startBtnEl = document.getElementById("start-button").onclick = function() {
 
         }
         if (timeLeft % 10 === 0) {
-            questionBox.remove();
+            questionBoxEl.remove();
             questionNumber++; 
             createQuestion();
         }
@@ -251,8 +252,6 @@ var createQuestion = function() {
             
         quizQuestionHolderEl.appendChild(quizQuestionContentEl);
         quizBoxEl.appendChild(quizQuestionHolderEl);
-        questionBox = document.getElementById("quiz-holder")
-        console.log(questionNumber)
     }
         
 }
@@ -261,18 +260,23 @@ var createQuestion = function() {
 
 //Checks answer of button clicked if correct
 var answerChecker = function(event) {
-    
-    var questionBox = document.getElementById("quiz-holder");
+    var correctAnswerEl = document.createElement("div");
+    correctAnswerEl.innerHTML = "<h3> Correct! </h3>";
+    var incorrectAnswerEl = document.createElement("div");
+    incorrectAnswerEl.innerHTML = "<h3> Incorrect! </h3>";
+    var questionBoxEl = document.getElementById("quiz-holder");
     targetEl = event.target;
     if (targetEl.getAttribute("answer") === quizQuestion[questionNumber].answer) {
         quizScore ++; 
-        questionBox.remove();
+        questionResultEl.innerHTML = "<h3> Correct! </h3>";
+        questionBoxEl.remove();
         questionNumber++; 
         createQuestion();
     } else if (targetEl.getAttribute("answer") != quizQuestion[questionNumber].answer) {
         quizScore --;
         timeLeft -= 10;
-        questionBox.remove();
+        questionResultEl.innerHTML = "<h3> Incorrect! </h3>";
+        questionBoxEl.remove();
         questionNumber++; 
         createQuestion();
     }
