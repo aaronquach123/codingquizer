@@ -20,12 +20,53 @@ header {
 
 }
 
-button {
+
+.button {
     width: fit-content;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px 25px 0px 25px;
+    background-color: var(--secondary-color) ;
+    border-radius: 12px;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
+    margin-top: 40px;
+    list-style-type: none;
+}
+
+.main-content ul {
+    list-style-type: none;
+    align-items: center;
+}
+
+.quiz-holder-div h3 {
+    font-size: 32px;
+}
+
+.highscore-input-form {
+    display: flex;
+    font-size: 32px;
+    margin: 10px 0px 10px 0px;
+}
+
+.input, .input-button {
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
+    font-size: 20px;
+    margin: 0px 5px 0px 5px;
+    border-radius: 10px;
+}
+
+.highscore-box h2{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.highscore-box ul li {
+    font-size: 22px;
 }
